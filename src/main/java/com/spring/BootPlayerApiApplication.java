@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BootPlayerApiApplication {
 
     public static void main(String[] args) {
+        //test
         SpringApplication.run(BootPlayerApiApplication.class, args);
     }
 
