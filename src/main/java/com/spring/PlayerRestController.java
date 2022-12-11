@@ -20,8 +20,12 @@ public class PlayerRestController {
     }
 
     @GetMapping("/player")
-    public Player player(@RequestParam int id){
-        return playerService.findById(id);
+    public Player getPlayer(@RequestParam int id){
+        Player player = playerService.findById(id);
+        if(player == null){
+            throw new PlayerException("player not found with that id");
+        }
+        return player;
     }
 
     @PostMapping("/players")

@@ -1,17 +1,21 @@
 package com.spring.dao;
 
 import com.spring.model.Player;
-import jakarta.persistence.EntityManager;
+import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import jakarta.persistence.EntityManager;
 
 import java.util.List;
 
 @Repository
 public class PlayerDaoImpl implements PlayerDao {
 
+    @PersistenceContext
     private EntityManager entityManager;
 
 
