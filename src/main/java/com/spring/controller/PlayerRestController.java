@@ -1,4 +1,4 @@
-package com.spring;
+package com.spring.controller;
 
 import com.spring.exception.PlayerException;
 import com.spring.model.Player;
