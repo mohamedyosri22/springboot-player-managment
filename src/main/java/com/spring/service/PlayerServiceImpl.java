@@ -1,8 +1,8 @@
 package com.spring.service;
 
 
+import com.spring.dao.PlayerRepo;
 import com.spring.model.Player;
-import com.spring.dao.PlayerDao;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,25 +14,30 @@ import java.util.List;
 public class PlayerServiceImpl implements PlayerService {
 
     @Autowired
-    private PlayerDao playerDao;
+    private PlayerRepo playerRepo;
 
     @Override
     public List<Player> findAll() {
-        return playerDao.findAll();
+        return playerRepo.findAll();
     }
 
     @Override
     public Player findById(int id) {
-        return playerDao.findById(id);
+        return playerRepo.findById(id).get();
     }
 
     @Override
-    public int Delete(int id) {
-        return playerDao.Delete(id);
+    public void delete(int id) {
+        playerRepo.deleteById(id);
     }
 
     @Override
     public Player save(Player player) {
-        return playerDao.save(player);
+        return playerRepo.save(player);
+    }
+
+    @Override
+    public List<Player> findByNameContaining(String name){
+        return playerRepo.findByNameContaining(name);
     }
 }

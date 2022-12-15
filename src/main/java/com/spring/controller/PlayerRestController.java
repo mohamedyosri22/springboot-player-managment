@@ -45,8 +45,13 @@ public class PlayerRestController {
             throw new PlayerException("player not found with that id");
         }
 
-        playerService.Delete(id);
+        playerService.delete(id);
         return player;
+    }
+
+    @GetMapping("/playersSearch")
+    public List<Player> Search(@RequestParam String name){
+       return playerService.findByNameContaining(name);
     }
 
 }

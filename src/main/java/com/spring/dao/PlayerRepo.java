@@ -9,9 +9,10 @@ import java.util.List;
 
 
 public interface PlayerRepo extends JpaRepository<Player,Integer> {
-    Player findByName(@RequestParam String name);
+    Player findByName(String name);
 
-    List<Player> findByNameContaining(@RequestParam String name);
+    List<Player> findByNameContaining(String name);
+
 
 }
 

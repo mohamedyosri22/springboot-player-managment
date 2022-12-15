@@ -11,7 +11,10 @@ public interface PlayerService {
 
     public Player findById(int id);
 
-    public int Delete(int id);
+    public void delete(int id);
 
     public Player save(Player player);
+
+    public List<Player> findByNameContaining(String name);
+
 }
