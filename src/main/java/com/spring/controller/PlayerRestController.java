@@ -14,11 +14,16 @@ public class PlayerRestController {
     @Autowired
     private PlayerService playerService;
 
+
+    // http://localhost:9090/api/players
     @GetMapping("/players")
     public List<Player> findAll(){
         return playerService.findAll();
     }
 
+
+
+    // http://localhost:9090/api/player?id=1
     @GetMapping("/player")
     public Player getPlayer(@RequestParam int id){
         Player player = playerService.findById(id);
@@ -28,16 +33,25 @@ public class PlayerRestController {
         return player;
     }
 
+
+
+    // http://localhost:9090/api/players
     @PostMapping("/players")
     public Player save(@RequestBody Player player){
         return playerService.save(player);
     }
 
+
+
+    // http://localhost:9090/api/players
     @PutMapping("/players")
     public Player update(@RequestBody Player player){
         return playerService.save(player);
     }
 
+
+
+    // http://localhost:9090/api/players/1
     @DeleteMapping("/players/{id}")
     public Player delete(@PathVariable("id")int id){
         Player player = playerService.findById(id);
@@ -49,7 +63,10 @@ public class PlayerRestController {
         return player;
     }
 
-    @GetMapping("/playersSearch")
+
+
+    // http://localhost:9090/api/playersSearch?name=k
+    @GetMapping("/players-search")
     public List<Player> Search(@RequestParam String name){
        return playerService.findByNameContaining(name);
     }
