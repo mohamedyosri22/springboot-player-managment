@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Date;
@@ -27,6 +29,21 @@ public class MainController {
         model.addAttribute("players",players);
         model.addAttribute("currentDate",new Date());
         return "home";
+    }
+
+
+    // http://localhost:9090/main/player-form  ==> GET
+    @GetMapping("/player-form")
+    public String playerForm(Model model){
+        model.addAttribute("player",new Player());
+        return "playerform";
+    }
+
+    @PostMapping("/save-player")
+    public String savePlayer(@ModelAttribute("player")Player player){
+        playerService.save(player);
+
+        return "redirect:/main/players";
     }
 
 

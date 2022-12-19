@@ -1,9 +1,22 @@
-h1{
+h1,.first-div{
     background-color: maroon;
     color:antiquewhite;
+}
+h1{
     text-align: center;
     padding: 10px;
+
 }
 .table{
-    padding:50px
+    padding:50px;
+}
+.first-div{
+    padding: 30px;
+    margin: 100px;
+    margin-top: 60px;
+}
+.head{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }
