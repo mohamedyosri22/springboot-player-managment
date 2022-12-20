@@ -13,6 +13,8 @@ public interface PlayerRepo extends JpaRepository<Player,Integer> {
 
     List<Player> findByNameContaining(String name);
 
+    List<Player> findAllByOrderByIdAsc();
+
 
 }
 

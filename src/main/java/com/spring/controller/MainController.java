@@ -22,7 +22,7 @@ public class MainController {
     // http://localhost:9090/main/players  ==> GET
     @GetMapping("/players")
     public String getAll(Model model){
-        List<Player> players = playerService.findAll();
+        List<Player> players = playerService.orderedPlayers();
         model.addAttribute("players",players);
         model.addAttribute("currentDate",new Date());
         return "home";
@@ -49,6 +49,12 @@ public class MainController {
     public String getPlayer(@RequestParam("playerId") int id,Model model){
         model.addAttribute("player",playerService.findById(id));
         return "playerform";
+    }
+
+    @GetMapping("/deletePlayer")
+    public String getPlayer(@RequestParam("playerId") int id){
+        playerService.delete(id);
+        return "redirect:/main/players";
     }
 
 

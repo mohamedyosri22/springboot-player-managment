@@ -7,6 +7,8 @@ import java.util.List;
 
 
 public interface PlayerService {
+
+    public List<Player> orderedPlayers();
     public List<Player> findAll();
 
     public Player findById(int id);

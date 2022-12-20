@@ -32,6 +32,12 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
+    public List<Player> orderedPlayers(){
+
+        return playerRepo.findAllByOrderByIdAsc();
+    }
+
+    @Override
     public Player save(Player player) {
         return playerRepo.save(player);
     }

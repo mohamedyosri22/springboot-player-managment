@@ -32,7 +32,7 @@
             <td th:text="${player.getAddress()}"></td>
             <td>
                 <a th:href="@{/main/getPlayer(playerId=${player.getId()})}" type="submit" class="btn btn-info">Update Player</a>
-                <a type="submit" class="btn btn-danger">Delete Player</a>
+                <a th:href="@{/main/deletePlayer(playerId=${player.getId()})}" type="submit" class="btn btn-danger">Delete Player</a>
             </td>
         </tr>
     </tbody>
