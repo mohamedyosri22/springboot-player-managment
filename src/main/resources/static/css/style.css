@@ -2,13 +2,14 @@ h1,.first-div{
     background-color: maroon;
     color:antiquewhite;
 }
-h1{
+h1,h2{
     text-align: center;
     padding: 10px;
 
 }
 .table{
-    padding:50px;
+    padding:10px;
+
 }
 .first-div{
     padding: 30px;

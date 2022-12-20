@@ -5,10 +5,7 @@ import com.spring.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -39,11 +36,19 @@ public class MainController {
         return "playerform";
     }
 
+    // http://localhost:9090/main/save-player  ==> GET
     @PostMapping("/save-player")
     public String savePlayer(@ModelAttribute("player")Player player){
         playerService.save(player);
 
         return "redirect:/main/players";
+    }
+
+    // http://localhost:9090/main/getPlayer  ==> GET
+    @GetMapping("/getPlayer")
+    public String getPlayer(@RequestParam("playerId") int id,Model model){
+        model.addAttribute("player",playerService.findById(id));
+        return "playerform";
     }
 
 

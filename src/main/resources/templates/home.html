@@ -20,6 +20,7 @@
             <th scope="col">Number</th>
             <th scope="col">Phone</th>
             <th scope="col">Address</th>
+            <th scope="col">Control</th>
         </tr>
     </thead>
     <tbody>
@@ -29,8 +30,15 @@
             <td th:text="${player.getNumber()}"></td>
             <td th:text="${player.getPhone()}"></td>
             <td th:text="${player.getAddress()}"></td>
+            <td>
+                <a th:href="@{/main/getPlayer(playerId=${player.getId()})}" type="submit" class="btn btn-info">Update Player</a>
+                <a type="submit" class="btn btn-danger">Delete Player</a>
+            </td>
         </tr>
     </tbody>
+
 </table>
+<a th:href="@{/main/player-form}" type="submit" class="btn btn-primary">Add Player</a>
+
 </body>
 </html>
